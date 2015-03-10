@@ -48,13 +48,5 @@ say "Restarting Apache"
 say "Changing start directory for Terminal to shared vagrant directory"
   echo 'cd /vagrant' >> ~/.bashrc > /dev/null 2>&1
 
-say "Adding git config info"
-  git config --global user.email "darincritchlow@gmail.com"
-  git config --global user.name "Darin Critchlow"
-  git config --global push.default simple
-  git config --global credential.helper cache
-  git config --global credential.helper 'cache --timeout=3600'
-  git config --global core.autocrlf false
-
 # Let this script know not to run again
 touch /var/vagrant_provision
