@@ -2,9 +2,6 @@
 .idea
 composer.phar
 vendor/
-Vagrantfile
-*.sh
-*.vhost
 .vagrant
 composer.lock
 
