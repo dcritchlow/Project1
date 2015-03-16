@@ -19,9 +19,8 @@ class LoginForm extends View
         <link href="http://$server/public/style.css" rel="stylesheet">
     </head>
     <body>
-<<<<<<< HEAD:src/Views/login.php
         <div class="container">
-            <form class="form-signin" method="POST" action="auth">
+            <form class="form-signin" method="POST" action="/auth">
                 <h2 class="form-signin-heading">Please sign in</h2>
                 <label for="username" class="sr-only">Username</label>
                 <input type="text" id="username" class="form-control" placeholder="Username" required autofocus name="username" />
@@ -34,13 +33,6 @@ class LoginForm extends View
                     </label>
                 </div>
                 <button class="btn" name="Login" type="submit" value="Login" />Login</button>
-=======
-        <div align="center">
-            <form method="POST" action="/auth">
-                Username: <input type="text" name="username" size="15" /><br />
-                Password: <input type="password" name="password" size="15" /><br />
-                <p><input type="submit" value="Login" /></p>
->>>>>>> upstream/master:src/Views/LoginForm.php
             </form>
         </div>
     </body>
