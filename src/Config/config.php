@@ -1,39 +1,43 @@
 <?php
 
+$projectDir = realpath(dirname(__FILE__) . '/../../');
+$authDir = $projectDir . '/src/Common/Authentication';
+$commonDir = $projectDir . '/src/Common';
+$controllersDir = $projectDir . '/src/Controllers';
+$configDir = $projectDir . '/src/Config';
+$httpDir = $projectDir . '/src/Common/Http';
+$routerDir = $projectDir . '/src/Common/Routers';
+$srcDir = $projectDir . '/src';
+$viewsDir = $projectDir . '/src/Views';
+
 $config = [
-    'application' => [
-        'environment' => 'dev',
-        'loglevel' => 1,
-        'quiet'    => false,
-        'dir'      => [
-            'src'            => 'src',
-            'config'         => 'src/Config',
+    'app' => [
+        'classes'      => [
+            'Common\\Authentication\\FileBased' => $authDir . '/FileBased.php',
+            'Common\\Authentication\\InMemory'  => $authDir . '/InMemory.php',
+            'Common\\Http\\IRequest'            => $httpDir . '/IRequest.php',
+            'Common\\Http\\SimpleRequest'       => $httpDir . '/SimpleRequest.php',
+            'Common\\Routers\\IRouter'          => $routerDir . '/IRouter.php',
+            'Common\\Routers\\SimpleRouter'     => $routerDir . '/SimpleRouter.php',
+            'Controllers\\AuthController'       => $controllersDir . '/AuthController.php',
+            'Controllers\\Controller'           => $controllersDir . '/Controller.php',
+            'Controllers\\MainController'       => $controllersDir . '/MainController.php',
+            'Views\\LoginForm'                  => $viewsDir . '/LoginForm.php',
+            'Views\\View'                       => $viewsDir . '/View.php',
         ],
-        'classes' => [
-            'Common\\Authentication\\Persistence\\AuthInterface' =>
-                $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
-                'Authentication'.DIRECTORY_SEPARATOR.'Persistence'.DIRECTORY_SEPARATOR.'AuthInterface.php',
-            'Common\\Authentication\\Persistence\\InMemory' =>
-                $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
-                'Authentication'.DIRECTORY_SEPARATOR.'Persistence'.DIRECTORY_SEPARATOR.'InMemory.php',
-            'Common\\Authentication\\Persistence\\FileBased' =>
-                $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
-                'Authentication'.DIRECTORY_SEPARATOR.'Persistence'.DIRECTORY_SEPARATOR.'FileBased.php',
-            'Common\\Authentication\\FactoryInterface' =>
-                $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
-                'Authentication'.DIRECTORY_SEPARATOR.'FactoryInterface.php',
-            'Common\\Authentication\\PersistenceFactory' =>
-                $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
-                'Authentication'.DIRECTORY_SEPARATOR.'PersistenceFactory.php',
-            'Common\\Request\\RequestInterface' =>
-                $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
-                'Request'.DIRECTORY_SEPARATOR.'RequestInterface.php',
-            'Common\\Request\\PostRequest' =>
-                $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
-                'Request'.DIRECTORY_SEPARATOR.'PostRequest.php',
-            'Common\Exception\LoginException' =>
-                $sourceDir.DIRECTORY_SEPARATOR.'Common'.DIRECTORY_SEPARATOR.
-                'Exception'.DIRECTORY_SEPARATOR.'LoginException.php'
+        'dir'          => [
+            'authentication' => $authDir,
+            'common'         => $commonDir,
+            'controllers'    => $controllersDir,
+            'config'         => $configDir,
+            'http'           => $httpDir,
+            'routers'        => $routerDir,
+            'src'            => $srcDir,
+            'views'          => $viewsDir
+        ],
+        'uri-mappings' => [
+            '/auth' => 'Controllers\\AuthController',
+            '/'     => 'Controllers\\MainController'
         ]
     ]
 ];

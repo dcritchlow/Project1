@@ -3,7 +3,14 @@ namespace Views;
 
 $server = $_SERVER["SERVER_NAME"];
 
-$loginForm = <<<LOGIN_FORM
+namespace Views;
+
+
+class LoginForm extends View
+{
+    public function __construct()
+    {
+        $this->content = <<<LOGIN_FORM
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +19,7 @@ $loginForm = <<<LOGIN_FORM
         <link href="http://$server/public/style.css" rel="stylesheet">
     </head>
     <body>
+<<<<<<< HEAD:src/Views/login.php
         <div class="container">
             <form class="form-signin" method="POST" action="auth">
                 <h2 class="form-signin-heading">Please sign in</h2>
@@ -26,10 +34,17 @@ $loginForm = <<<LOGIN_FORM
                     </label>
                 </div>
                 <button class="btn" name="Login" type="submit" value="Login" />Login</button>
+=======
+        <div align="center">
+            <form method="POST" action="/auth">
+                Username: <input type="text" name="username" size="15" /><br />
+                Password: <input type="password" name="password" size="15" /><br />
+                <p><input type="submit" value="Login" /></p>
+>>>>>>> upstream/master:src/Views/LoginForm.php
             </form>
         </div>
     </body>
 </html>
 LOGIN_FORM;
-
-echo $loginForm;
+    }
+}
