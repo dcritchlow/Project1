@@ -27,8 +27,6 @@ class AuthController extends Controller
     public function action()
     {
         $postData = $this->request->getPost();
-        var_dump($postData);
-//        echo $postData->auth;
 
         $persistence = new PersistenceFactory();
 
