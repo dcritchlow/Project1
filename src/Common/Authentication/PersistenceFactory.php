@@ -2,10 +2,10 @@
 
 namespace Common\Authentication;
 
-use Common\Authentication\Persistence\InMemory;
-use Common\Authentication\Persistence\FileBased;
+use Common\Authentication\InMemory;
+use Common\Authentication\FileBased;
 
-class PersistenceFactory implements FactoryInterface
+class PersistenceFactory implements IFactory
 {
 
     public function create()

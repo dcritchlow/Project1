@@ -11,6 +11,7 @@
  */
 
 namespace Controllers;
+use Common\Authentication\PersistenceFactory;
 
 
 /**
@@ -26,9 +27,23 @@ class AuthController extends Controller
     public function action()
     {
         $postData = $this->request->getPost();
+        var_dump($postData);
+//        echo $postData->auth;
 
-        echo 'Authenticate the above two different ways' . var_dump($postData);
+        $persistence = new PersistenceFactory();
 
-        // example code: $auth = new Authentication($postData['username'], $postData['password']);
+        if ($postData->auth == 'in-memory')
+        {
+            $authenticate = $persistence->createInMemoryPersistence();
+        }
+
+        if ($postData->auth == 'file-based')
+        {
+            $authenticate = $persistence->createFileBasedPersistence();
+        }
+
+        $view = $authenticate->authenticate($postData->username, $postData->password);
+        $view->show();
+
     }
 }

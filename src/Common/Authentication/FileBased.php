@@ -1,8 +1,11 @@
 <?php
 
-namespace Common\Authentication\Persistence;
+namespace Common\Authentication;
 
-class FileBased implements AuthInterface
+use Views\NotAuthorized;
+use Views\Welcome;
+
+class FileBased implements IAuthentication
 {
 
     protected $username;
@@ -24,18 +27,18 @@ class FileBased implements AuthInterface
             $this->password = $password;
         }
 
-        $file = realpath(dirname(__FILE__).DIRECTORY_SEPARATOR.'../../..'.DIRECTORY_SEPARATOR.'user.txt');
+        $file = realpath(dirname(__FILE__).DIRECTORY_SEPARATOR.'../../'.DIRECTORY_SEPARATOR.'user.txt');
         $userFile = file_get_contents($file);
         $user = explode(',',$userFile);
 
         if ($this->username !== $user[0]) {
-            return "Not Authorized!";
+            return new NotAuthorized();
         }
 
         if ($this->password !== $user[1]) {
-            return "Not Authorized!";
+            return new NotAuthorized();
         }
 
-        return "Welcome ". $this->username . "!";
+        return new Welcome();
     }
 }

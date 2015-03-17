@@ -1,8 +1,11 @@
 <?php
 
-namespace Common\Authentication\Persistence;
+namespace Common\Authentication;
 
-class InMemory implements AuthInterface
+use Views\NotAuthorized;
+use Views\Welcome;
+
+class InMemory implements IAuthentication
 {
     protected $username;
     protected $password;
@@ -24,13 +27,13 @@ class InMemory implements AuthInterface
         }
 
         if ($this->username !== 'joe') {
-            return "Not Authorized!";
+            return new NotAuthorized();
         }
 
         if ($this->password !== '1234pass') {
-            return "Not Authorized!";
+            return new NotAuthorized();
         }
 
-        return "Welcome ". $this->username . "!";
+        return new Welcome();
     }
 }

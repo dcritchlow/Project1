@@ -1,6 +1,6 @@
 <?php
 
-use Common\Authentication\Persistence\InMemory;
+use Common\Authentication\InMemory;
 
 class InMemoryTest extends \Codeception\TestCase\Test
 {

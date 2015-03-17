@@ -1,7 +1,7 @@
 <?php
 namespace Common\Authentication;
 
-interface FactoryInterface
+interface IFactory
 {
     public function create();
 }

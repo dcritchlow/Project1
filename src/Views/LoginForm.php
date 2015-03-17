@@ -3,9 +3,6 @@ namespace Views;
 
 $server = $_SERVER["SERVER_NAME"];
 
-namespace Views;
-
-
 class LoginForm extends View
 {
     public function __construct()
@@ -16,7 +13,7 @@ class LoginForm extends View
     <head>
         <meta charset="UTF-8">
         <title>Example Login Form</title>
-        <link href="http://$server/public/style.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">

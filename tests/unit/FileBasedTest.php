@@ -1,6 +1,6 @@
 <?php
 
-use Common\Authentication\Persistence\FileBased;
+use Common\Authentication\FileBased;
 
 class FileBasedTest extends \Codeception\TestCase\Test
 {
