@@ -37,7 +37,7 @@ class AuthController extends Controller
 
         if ($postData->auth == 'file-based')
         {
-            $authenticate = $persistence->createFileBasedPersistence();
+            $authenticate = $persistence->createFileBasedPersistence($this->config);
         }
 
         $view = $authenticate->authenticate($postData->username, $postData->password);
