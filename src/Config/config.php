@@ -19,6 +19,7 @@ $config = [
             'Common\\Authentication\\IAuthentication'       => $authDir . '/IAuthentication.php',
             'Common\\Authentication\\FileBased'             => $authDir . '/FileBased.php',
             'Common\\Authentication\\InMemory'              => $authDir . '/InMemory.php',
+            'Common\\Authentication\\User'                  => $authDir . '/User.php',
             'Common\\Http\\IRequest'                        => $httpDir . '/IRequest.php',
             'Common\\Http\\SimpleRequest'                   => $httpDir . '/SimpleRequest.php',
             'Common\\Http\\PostRequest'                     => $httpDir . '/PostRequest.php',
@@ -46,6 +47,7 @@ $config = [
         'uri-mappings' => [
             '/auth' => 'Controllers\\AuthController',
             '/'     => 'Controllers\\MainController'
-        ]
+        ],
+        'userFile'  =>  $srcDir.'/user.txt'
     ]
 ];

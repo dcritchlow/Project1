@@ -18,8 +18,8 @@ class PersistenceFactory implements IFactory
         return new InMemory();
     }
 
-    public function createFileBasedPersistence()
+    public function createFileBasedPersistence($config)
     {
-        return new FileBased();
+        return new FileBased($config);
     }
 }
